@@ -6,6 +6,9 @@ COPY package.json yarn.lock ./
 
 RUN yarn install --frozen-lockfile
 
+RUN yarn add multer
+RUN yarn add -D @types/multer
+
 COPY . .
 
 RUN npx prisma generate

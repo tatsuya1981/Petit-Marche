@@ -64,6 +64,7 @@ model Image {
   reviewId  Int
   order     Int
   imageUrl  String
+  isMain    Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

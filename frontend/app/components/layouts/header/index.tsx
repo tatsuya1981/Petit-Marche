@@ -5,7 +5,7 @@ import petitMarche from '@/images/PetitMarche.svg';
 
 const Header = () => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.logoLink}>
@@ -21,7 +21,7 @@ const Header = () => {
           </Link>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

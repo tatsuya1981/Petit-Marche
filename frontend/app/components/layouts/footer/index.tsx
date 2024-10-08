@@ -6,7 +6,7 @@ import github from '@/images/github.svg';
 
 const Footer = () => {
   return (
-    <div className={styles.container}>
+    <footer className={styles.container}>
       <div className={styles.areaWrapper}>
         <div className={styles.logoWrapper}>
           <Image className={styles.logo} src={petitMarche} alt="当サイトのロゴ" width={200} height={100} priority />
@@ -35,7 +35,7 @@ const Footer = () => {
           <small className={styles.copyRight}>©︎Petit Marche Portfolio</small>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
