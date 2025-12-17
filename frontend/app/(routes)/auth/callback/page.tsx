@@ -2,9 +2,10 @@
 
 import styles from './page.module.scss';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
-export default function AuthCallback() {
+// useSearchParamsを使用するコンポーネントを分離
+function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -37,5 +38,26 @@ export default function AuthCallback() {
         <div className={styles.loadingSpinner} />
       </div>
     </div>
+  );
+}
+
+// ローディング表示用コンポーネント
+function LoadingFallback() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>読み込み中・・・</h1>
+        <div className={styles.loadingSpinner} />
+      </div>
+    </div>
+  );
+}
+
+// メインコンポーネント - Suspenseでラップ
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <AuthCallbackContent />
+    </Suspense>
   );
 }
